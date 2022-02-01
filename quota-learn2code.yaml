@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: learn2code-quota
+  namespace: learn2code
+spec:
+  hard:
+    pods: "5"
+    requests.cpu: "5"
+    limits.cpu: "10"
+    requests.memory: 2Gi
+    limits.memory: 4Gi

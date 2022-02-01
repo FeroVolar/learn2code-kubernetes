@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: moj-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: ovocny.shop
+    http:
+      paths:
+        - path: /jablko
+          pathType: Prefix
+          backend:
+            service:
+              name: jablko-service
+              port:
+                number: 5678
+        - path: /hruska
+          pathType: Prefix
+          backend:
+            service:
+              name: hruska-service
+              port:
+                number: 5678
+

@@ -1,0 +1,10 @@
+Cron syntax plánovania
+# ┌───────────── minuta (0 - 59)
+# │ ┌───────────── hodina (0 - 23)
+# │ │ ┌───────────── den v mesiaci (1 - 31)
+# │ │ │ ┌───────────── mesiac (1 - 12)
+# │ │ │ │ ┌───────────── den v tydni (0 - 6) (od nedele do soboty;
+# │ │ │ │ │                                   aj 7 je na niektorých systémoch nedeľa)
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * *

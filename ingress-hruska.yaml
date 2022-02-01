@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hruska-app
+  labels:
+    app: hruska
+spec:
+  containers:
+  - name: hruska-app
+    image: hashicorp/http-echo
+    args:
+      - "-text=hruska"
+
+--- 
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: hruska-service
+spec:
+  selector:
+    app: hruska
+  ports:
+    - port: 5678

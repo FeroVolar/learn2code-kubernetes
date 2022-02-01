@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: moje-api
+spec:
+  podSelector:
+    matchLabels:
+      app: moja-app
+      part: api 
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: moja-app
+

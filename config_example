@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Config
+preferences: {}
+
+clusters:
+- cluster:
+  name: development
+- cluster:
+  name: production
+
+users:
+- name: developer
+- name: administrator
+
+contexts:
+- context:
+    cluster: development
+    namespace: frontend
+    user: developer
+  name: dev-test-frontend
+- context:
+    cluster: production
+    namespace: frontend
+    user: developer
+  name: dev-production-frontend
+- context:
+    cluster: production
+    namespace: default
+    user: administrator
+  name: admin-production  

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moj-deployment-cm
+  labels:
+    app: moja-app
+    part: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: moja-app
+  template:
+    metadata:
+      name: moja-app-pod
+      labels:
+        app: moja-app
+        part: frontend
+    spec:
+      containers:
+      - name: webserver-container
+        image: nginx
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: nginx-index-file
+            mountPath: /usr/share/nginx/html/
+      volumes:
+        - name: nginx-index-file
+          configMap:
+            name: nginx-config

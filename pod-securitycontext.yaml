@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: moj-security-context
+  labels:
+    app: moja-app
+    part: frontend
+spec:
+  securityContext:
+    runAsUser: 1001
+    runAsGroup: 1001
+  containers:
+  - name: sleep
+    image: busybox
+    command: ["sh", "-c", "sleep 1h"]

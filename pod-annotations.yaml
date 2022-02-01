@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: moja-app-pod
+  labels:
+    app: moja-app
+    part: frontend
+  annotations:
+    version: "1.0"
+    departmen: "DevOps Team Bratislava, Slovkia"
+    lastupdate: "1.4.2022"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
